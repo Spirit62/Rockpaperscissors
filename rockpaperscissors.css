@@ -1,0 +1,37 @@
+body{
+  background-color: rgb(43, 43, 43);
+  color:white;
+  font-family: arial;
+}
+.header{
+  font-size: 30px;
+  font-weight: bold;
+}
+.rpc{
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px white solid;
+  margin-right: 10px;
+  width:120px;
+  height:120px;
+  cursor:pointer;
+}
+.move-icon{
+  height:50px;
+  padding:0px;
+}
+.result{
+  font-size:20px;
+  font-weight: bold;
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+.score{
+   margin-top:50px;
+}
+.reset{
+  margin-top:10px;
+  padding:8px 15px;
+  font-size:15px;
+  cursor: pointer;
+}
