@@ -8,16 +8,21 @@
 <body>
   <p class="header">Rock Paper Scissors</p>
   
-  <button class="rpc" onclick="playGame('Rock');"><img class="move-icon" src="images/Rock-emoji.png"></button>
-  <button class="rpc" onclick="playGame('Paper');"><img class="move-icon" src="images/Paper-emoji.png"></button>
-  <button class="rpc" onclick="playGame('Scissors');"><img class="move-icon" src="images/Scissors-emoji.png"></button>
+  <button class="rpc js-rock"><img class="move-icon" src="images/Rock-emoji.png"></button>
+  <button class="rpc js-paper"><img class="move-icon" src="images/Paper-emoji.png"></button>
+  <button class="rpc js-scissors"><img class="move-icon" src="images/Scissors-emoji.png"></button>
   <p class="js-result result"></p>
   <p class="js-move move">
   </p>
   <p class="js-score score"></p>
   <button class="reset" onclick="resetScore(); localStorage.removeItem('score')">Reset Score</button>
   <button class="auto" onclick="autoPlay();">AutoPlay</button>
-
+  <p>
+    press r: rock<br>
+    press p: paper<br>
+    press s: scissors<br>
+    (Or manually press buttons!)
+  </p>
   <script src="index.js">
   </script>
 </body>

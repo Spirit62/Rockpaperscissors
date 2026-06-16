@@ -35,6 +35,30 @@ function autoPlay(){
     isautoPlaying=false;
   }
 }
+
+  document.querySelector('.js-rock')
+    .addEventListener('click', () => {
+      playGame('Rock')
+    })
+  document.querySelector('.js-paper')
+    .addEventListener('click', ()=>{
+     playGame('Paper')
+    })
+  document.querySelector('.js-scissors')
+    .addEventListener('click', ()=>{
+      playGame('Scissors')
+    })
+  document.body.addEventListener('keydown',(event)=>{
+    if(event.key==='r'){
+      playGame('Rock')
+    }
+    else if (event.key==='p'){
+      playGame('Paper')
+    }
+    else if (event.key==='s'){
+      playGame('Scissors')
+    }
+  })
 function playGame(moveReceived) {
   userMove = moveReceived;
   compMove = computerChoice();
