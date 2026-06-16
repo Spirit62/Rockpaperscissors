@@ -14,6 +14,7 @@ A simple web-based Rock Paper Scissors game built with HTML, CSS, and JavaScript
 * Visual display comparing your move against the computer's move.
 * Persistent score counter tracking total Wins, Losses, and Ties.
 * Reset button to clear the score and start over.
+* Autoplay button for automation
 
 ## Files
 
