@@ -24,7 +24,7 @@ function computerChoice() {
 }
 function autoPlay(){
   if (!isautoPlaying){
-    intervalID= setInterval (function(){
+    intervalID= setInterval (()=>{
     const moveReceived=computerChoice();
     playGame(moveReceived);
   },1000);
