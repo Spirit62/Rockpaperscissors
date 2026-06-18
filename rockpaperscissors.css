@@ -28,10 +28,48 @@ body{
 }
 .score{
    margin-top:50px;
+   font-size: 22px;
+}
+.wins{
+  color:green;
+  font-weight: bold;
+}
+.loss{
+  color: red;
+  font-weight: bold;
+}
+.ties{
+  color:yellow;
+  font-weight: bold;
 }
 .reset,.auto{
   margin-top:10px;
   padding:8px 15px;
-  font-size:15px;
+  font-size:16px;
   cursor: pointer;
+  border:none;
+  border-radius: 12px;
+  margin-right:10px;
+  font-weight: bold;
+
+}
+.reset{
+  background-color:rgb(238, 87, 87)
+}
+.auto{
+  background-color:lightgreen;
+}
+.all-container{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.main-right{
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  font-size:20px;
+}
+.imp{
+  color:green;
 }

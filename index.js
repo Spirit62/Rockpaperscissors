@@ -3,6 +3,7 @@ let compMove = "";
 let result = "";
 let isautoPlaying = false;
 let intervalID;
+let isConfirmationShowing = false;
 const score = JSON.parse(localStorage.getItem('score')) ||{
     Wins:0,
     Loss:0,
@@ -28,9 +29,13 @@ function autoPlay(){
     const moveReceived=computerChoice();
     playGame(moveReceived);
   },1000);
+  document.querySelector('.js-auto')
+    .innerHTML='Stop Playing';
   isautoPlaying=true;
   }
   else{
+    document.querySelector('.js-auto')
+      .innerHTML='AutoPlay';
     clearInterval(intervalID);
     isautoPlaying=false;
   }
@@ -58,7 +63,47 @@ function autoPlay(){
     else if (event.key==='s'){
       playGame('Scissors')
     }
+    else if (event.key==='a'){
+      autoPlay();
+    }
+    else if (event.key==='Backspace'){
+      showResetConfirmation();
+    }
+    else if (event.key==='y'&& isConfirmationShowing){
+      resetScore();
+      localStorage.removeItem('score');
+      document.querySelector('.pop-up').innerHTML = '';
+    }
+    else if (event.key==='n'&& isConfirmationShowing){
+      document.querySelector('.pop-up').innerHTML = '';
+    }
   })
+ 
+  document.querySelector('.js-auto').addEventListener('click',()=>{
+    autoPlay();
+  })
+  document.querySelector('.js-reset').addEventListener('click',()=>
+  {
+    document.querySelector('.pop-up')
+      showResetConfirmation();
+  })
+ 
+  function showResetConfirmation(){
+    isConfirmationShowing=true;
+    document.querySelector('.pop-up').innerHTML = `
+      <p>Are You Sure You want to reset score?<span class="imp">(Press Y/N or press buttons!</span></p>
+      <button class="js-yes yes">Yes</button>
+      <button class="js-no no">No</button>
+    `;
+    document.querySelector('.js-yes').addEventListener('click', () => {
+      resetScore();
+      localStorage.removeItem('score');
+      document.querySelector('.pop-up').innerHTML = '';
+    });
+    document.querySelector('.js-no').addEventListener('click', () => {
+      document.querySelector('.pop-up').innerHTML = '';
+    });
+}
 function playGame(moveReceived) {
   userMove = moveReceived;
   compMove = computerChoice();
@@ -117,7 +162,9 @@ function resetScore(){
 }
 function updateScoreElement(){
   document.querySelector('.js-score')
-  .innerHTML=`Wins: ${score.Wins}, Loss: ${score.Loss}, Ties: ${score.Ties}`
+  .innerHTML=`<span class='wins'>Wins: ${score.Wins}</span>,<br><br>
+  <span class='loss'>Loss: ${score.Loss}</span>,<br><br>
+  <span class='ties'> Ties: ${score.Ties}</span>`
 }
 function scoreResultElement(){
   document.querySelector('.js-result')
